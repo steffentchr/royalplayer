@@ -4,6 +4,6 @@ This is a banner video player for [The Danish Royal Theater](https://github.com/
 
 ### Examples
 
-<p><img src="https://raw.github.com/steffentchr/royalplayer/master/design/screen-lead.png"></p>
+<p><img src="https://raw.github.com/steffentchr/royalplayer/master/design/screen-lead.png" height="179"></p>
 
-<p><img src="https://raw.github.com/steffentchr/royalplayer/master/design/screen-box.png"></p>
+<p><img src="https://raw.github.com/steffentchr/royalplayer/master/design/screen-box.png" height="248"></p>
