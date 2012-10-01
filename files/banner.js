@@ -106,7 +106,7 @@
           });
         
         // Load player
-        $this.eingebaut =  new Eingebaut($('#video'), 'html5', 'http://video.kglteater.dk/7095378.swf', $this.eingebautCallback);
+        $this.eingebaut = new Eingebaut($('#video'), 'html5', 'http://video.kglteater.dk/7095378.swf', $this.eingebautCallback);
         $this.eingebaut.load();
 
         // We're ready

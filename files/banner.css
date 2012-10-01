@@ -72,14 +72,14 @@ a#visit  {
 
 /* Video */
 #video {
-    display:none;
+    opacity:0;
     position:absolute;
     top:41px;
     height:168px;
     width:300px; 
 }
 .playing #video, .paused #video, .ended #video  {
-    display:block;
+    opacity:1;
 }
 
 /* Scrubber + Progress */
@@ -164,7 +164,7 @@ body.lead img#play, body.lead img#pause {
     left:125px;
 }
 body.lead #video {
-    display:block !important;
+    opacity:1 !important;
     position:absolute;
     top:0;
     height:180px;
