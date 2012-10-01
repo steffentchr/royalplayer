@@ -38,6 +38,7 @@
         }catch(e){}
         break;
       case 'pause':
+        $this.reportAnalyticsPlay();
         $this.setState('paused');
         break;
       case 'playing':
@@ -51,6 +52,7 @@
         $this.setState('playing');
         break;
       case 'ended':
+        $this.reportAnalyticsPlay();
         $this.setState('ended');
         break;
       }

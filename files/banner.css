@@ -191,3 +191,6 @@ body.iphone img#play, body.iphone img#pause {
 body.box.loaded.iphone img#play {
     display:block !important;
 }
+body.ended.iphone #video {
+    display:none !important;
+}
