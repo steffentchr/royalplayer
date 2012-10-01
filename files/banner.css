@@ -90,6 +90,7 @@ a#visit  {
     height:5px;
     width:300px; 
     background-color:#504a40;
+    overflow:hidden;
 }
 .playing #scrubber, .paused #scrubber, .ended #scrubber  {
     display:block;
@@ -177,6 +178,9 @@ body.lead #ended {
 }
 body.lead #ended #readmore {
     margin-top:47px;
+}
+body.lead a#title, body.lead a#visit {
+    display:none !important;
 }
 
 /* iPhone */
