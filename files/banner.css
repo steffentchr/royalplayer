@@ -179,10 +179,11 @@ body.lead #ended #readmore {
     margin-top:47px;
 }
 
-/* iOS */
-body.ios img#play, body.ios img#pause {
+/* iPhone */
+body.iphone img#play, body.iphone img#pause {
     display:none !important;
 }
-body.loaded.ios img#play {
+body.loaded.iphone img#play {
     display:block !important;
 }
+

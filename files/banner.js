@@ -49,20 +49,19 @@
     }
 
     // Handle playback and pausing
-    $this.togglePlay = function(){
-      if(!$this.eingebaut){
-        // Bootstrap video playback
-      } else {
-        // Just toggle
-        if($this.eingebaut.getSource()=='') {
-          if($this.eingebaut.canPlayType('video/mp4; codecs="avc1.42E01E"')) {
-            $this.eingebaut.setSource('http://' + $this.domain + $this.photo.video_medium_download);
-          } else {
-            $this.eingebaut.setSource('http://' + $this.domain + $this.photo.video_webm_360p_download);
-          }
+    $this.togglePlay = function(e){
+      if($this.eingebaut.getSource()=='') {
+        if($this.eingebaut.canPlayType('video/mp4; codecs="avc1.42E01E"')) {
+          $this.eingebaut.setSource('http://' + $this.domain + $this.photo.video_medium_download);
+        } else {
+          $this.eingebaut.setSource('http://' + $this.domain + $this.photo.video_webm_360p_download);
         }
-        $this.eingebaut.setPlaying(!$this.eingebaut.getPlaying());
       }
+      $this.eingebaut.setPlaying(!$this.eingebaut.getPlaying());
+      
+      // Don't do anything else
+      if(e&&e.stopPropagation) e.stopPropagation();
+      return(false);
     }
 
     // Load data and the application
@@ -70,22 +69,21 @@
         $this.photo = photo;
         $this.body = $('body');
 
-        // iOS without play buttons
-        if(navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/iPad/i)) $this.body.addClass('ios');
+        // iPhone without play buttons
+        if(navigator.userAgent.match(/iPhone/i)) $this.body.addClass('iphone');
 
         // Title, image, links
         if($(document).width()==300) {
           $this.bannerType = 'box';
           $('#image').attr('src', 'http://' + [$this.domain, $this.photo.tree_id, $this.photo.photo_id, $this.photo.token, 'file', 'box.jpg'].join('/'));
-          $('#image, #video, #play, #pause').click($this.togglePlay);
+          $('#imagelink, #video, #play, #pause').click($this.togglePlay);
         } else {
           $this.bannerType = 'lead';
           $('#image').attr('src', 'http://' + [$this.domain, $this.photo.tree_id, $this.photo.photo_id, $this.photo.token, 'file', 'lead.jpg'].join('/'));
           $('#video, #play, #pause').click($this.togglePlay);
-          $('#image').click(function(){location.href = $this.photo.banner_link;});
         }
         $this.body.addClass($this.bannerType);
-        $('#visit, #title, #readmorelink').attr('href', $this.photo.banner_link);
+        $('#visit, #title, #readmorelink, #imagelink').attr('href', $this.photo.banner_link);
         $('#title').html($this.photo.banner_title||$this.photo.title);
         $('#playagain').click(function(){
             $this.setState('playing');
@@ -98,6 +96,12 @@
             $('#pause').animate({opacity:0}, 300);
           });
         $this.body.mouseenter(function() {
+            $('#pause').animate({opacity:1}, 300);
+          });
+        $('#image').mouseenter(function() {
+            $('#pause').animate({opacity:0}, 300);
+          });
+        $('#image').mouseleave(function() {
             $('#pause').animate({opacity:1}, 300);
           });
         
