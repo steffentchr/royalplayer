@@ -40,6 +40,12 @@
         $this.setState('paused');
         break;
       case 'playing':
+        if(navigator.userAgent.match(/iPad/i)) {
+          // Hide pause button automatically on iPad
+          window.setInterval(function(){
+              $('#pause').animate({opacity:0}, 300);
+            }, 3000);
+        }
         $this.setState('playing');
         break;
       case 'ended':
@@ -70,7 +76,9 @@
         $this.body = $('body');
 
         // iPhone without play buttons
-        if(navigator.userAgent.match(/iPhone/i)) $this.body.addClass('iphone');
+        if(navigator.userAgent.match(/iPhone/i)) {
+          $this.body.addClass('iphone');
+        }
 
         // Title, image, links
         if($(document).width()==300) {
@@ -108,6 +116,11 @@
         // Load player
         $this.eingebaut = new Eingebaut($('#video'), 'html5', 'http://video.kglteater.dk/7095378.swf', $this.eingebautCallback);
         $this.eingebaut.load();
+
+        // Special behaviour for iPhone and iPad where we want to ensure Mobile Safari that this is a video
+        if(navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/iPad/i)) {
+          $this.eingebaut.setSource('http://' + $this.domain + $this.photo.video_medium_download);
+        }
 
         // We're ready
         $this.setState('loaded');

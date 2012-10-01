@@ -1,3 +1,3 @@
-./minify http://video.kglteater.dk/resources/um/script/swfobject/swfobject.js https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js https://raw.github.com/23/eingebaut/master/eingebaut.js https://raw.github.com/23/visualplatform.js/master/visualplatform.js http://video.kglteater.dk/files/banner.js > /tmp/banner.min.js
+./minify.tcl http://video.kglteater.dk/resources/um/script/swfobject/swfobject.js https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js https://raw.github.com/23/eingebaut/master/eingebaut.js https://raw.github.com/23/visualplatform.js/master/visualplatform.js http://video.kglteater.dk/files/banner.js > /tmp/banner.min.js
 
-./minify http://video.kglteater.dk/files/banner.css > /tmp/banner.min.css
+./minify.tcl http://video.kglteater.dk/files/banner.css > /tmp/banner.min.css

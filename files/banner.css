@@ -187,7 +187,7 @@ body.lead a#title, body.lead a#visit {
 body.iphone img#play, body.iphone img#pause {
     display:none !important;
 }
-body.loaded.iphone img#play {
+body.loaded.box.iphone img#play {
     display:block !important;
 }
 
