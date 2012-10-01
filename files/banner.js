@@ -19,7 +19,7 @@
 
     // Maintain state for CSS
     $this.setState = function(state){
-      $this.body.removeClass('loaded').removeClass('playing').removeClass('paused').removeClass('ended');
+      $this.body.removeClass('loading').removeClass('loaded').removeClass('playing').removeClass('paused').removeClass('ended');
       $this.body.addClass(state);
     }
 
@@ -27,6 +27,7 @@
     $this.eingebautCallback = function(e){
       switch(e){
       case 'ready':
+        $this.setState('loaded');
         if ($this.bannerType=='lead') $this.eingebaut.setPoster('http://' + $this.domain + $this.photo.large_download);
         if($this.autoPlayOnLoad) $this.eingebaut.setPlaying(true);
         break;
@@ -42,9 +43,10 @@
       case 'playing':
         if(navigator.userAgent.match(/iPad/i)) {
           // Hide pause button automatically on iPad
-          window.setInterval(function(){
+          $('#pause').animate({opacity:1}, 300);
+          window.setTimeout(function(){
               $('#pause').animate({opacity:0}, 300);
-            }, 3000);
+            }, 4000);
         }
         $this.setState('playing');
         break;
@@ -123,7 +125,6 @@
         }
 
         // We're ready
-        $this.setState('loaded');
         $this.reportAnalyticsEvent('load');
     }
 

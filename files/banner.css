@@ -16,6 +16,7 @@ body a, body a:link, body a:visited {
     color:white;
     text-decoration:none;
 }
+body.loading #container {visibility:hidden;}
 
 /* Container */
 #container {
@@ -187,7 +188,6 @@ body.lead a#title, body.lead a#visit {
 body.iphone img#play, body.iphone img#pause {
     display:none !important;
 }
-body.loaded.box.iphone img#play {
+body.box.loaded.iphone img#play {
     display:block !important;
 }
-
